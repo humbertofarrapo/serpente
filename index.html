@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Selecione o nível de dificuldade</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            background: rgb(255, 255, 255);
+        }
+        h2, h3 {
+            font-family: "Helvetica", sans-serif;
+            color: rgb(45, 87, 44);
+            padding: 15px;
+            background: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .scores, .select-level {
+            font-family: "Helvetica", sans-serif;
+            color: rgb(45, 87, 44);
+            display: flex;
+            justify-content: center;
+            background: rgb(255, 255, 255);
+            text-align: center;
+        }
+        #levels {
+            width: 50%;
+            min-width: 200px;
+            max-width: 400px;
+            padding: 15px;
+        }
+        #level, #submit, #reset {
+            width: 100%;
+            padding: 10px 5px;
+            margin: 5px 3px;
+            border-radius: 5px;
+            border: none;
+        }
+        #submit {
+            color: white;
+            background: rgb(31, 141, 21);
+        }
+        #reset {
+            color: white;
+            background: rgb(155, 17, 30);
+        }
+        #level:hover, #submit:hover, #reset:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Jogo da Cobrinha</h2>
+    </div>
+    <h3>Selecione o nível de dificuldade</h3>
+    <div class="select-level">
+        <form action="jogo.html" id="levels">
+            <select id="level">
+                <option id="easyOption" value="easy">Fácil</option>
+                <option id="mediumOption" value="medium">Médio</option>
+                <option id="hardOption" value="hard">Difícil</option>
+            </select>
+            <input type="submit" value="Jogar" id="submit" class="btn-play" />
+            <input type="button" value="Resetar Pontuação" onclick="resetHighScore()" id="reset" />
+        </form>
+    </div>
+
+    <div class="scores">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nível</th>
+                    <th>&nbsp;&nbsp;&nbsp;Maior Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fácil</td>
+                    <td class="easyHighScore">0</td>
+                </tr>
+                <tr>
+                    <td>Médio</td>
+                    <td class="mediumHighScore">0</td>
+                </tr>
+                <tr>
+                    <td>Difícil</td>
+                    <td class="hardHighScore">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function resetHighScore() {
+            let easyHighScore = document.querySelector(".easyHighScore");
+            let mediumHighScore = document.querySelector(".mediumHighScore");
+            let hardHighScore = document.querySelector(".hardHighScore");
+
+            easyHighScore.innerText = 0;
+            mediumHighScore.innerText = 0;
+            hardHighScore.innerText = 0;
+
+            localStorage.setItem("snakeHighScore150", JSON.stringify(0));
+            localStorage.setItem("snakeHighScore100", JSON.stringify(0));
+            localStorage.setItem("snakeHighScore70", JSON.stringify(0));
+        }
+
+        window.onload = function() {
+            let levels = document.getElementById("levels");
+            let level = document.getElementById("level");
+
+            levels.addEventListener("submit", () => {
+                localStorage.setItem("snakeLevel", JSON.stringify(level.value));
+            });
+            
+            let easyHighScore = document.querySelector(".easyHighScore");
+            easyHighScore.innerText = parseInt(localStorage.getItem("snakeHighScore150")) || 0;
+
+            let mediumHighScore = document.querySelector(".mediumHighScore");
+            mediumHighScore.innerText = parseInt(localStorage.getItem("snakeHighScore100")) || 0;
+
+            let hardHighScore = document.querySelector(".hardHighScore");
+            hardHighScore.innerText = parseInt(localStorage.getItem("snakeHighScore70")) || 0;
+        }
+    </script>
+</body>
+</html>

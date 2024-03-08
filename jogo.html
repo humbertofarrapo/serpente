@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jogo da Cobrinha</title>
+    <style>
+        body {
+            background: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        .home-btn {
+            font-family: "helvetica";
+            padding: 10px 15px;
+            background-color: rgb(155, 17, 30);
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            max-width: 100px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .home-btn:hover {
+            opacity: 0.7;
+        }
+
+        #snake {
+            border: 1.5px solid #2d572c;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="index.html" class="home-btn">&larr; Voltar</a>
+    </div>
+    <div class="center">
+        <canvas id="snake" width="600" height="595"></canvas>
+    </div>
+    <script src="./snake.js"></script>
+</body>
+</html>
