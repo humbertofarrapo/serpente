@@ -7,7 +7,7 @@ Esta é uma implementação do clássico jogo da Serpente desenvolvido em JavaSc
 * O jogo termina quando a cobra colide com as paredes ou com seu próprio corpo.
 
 # Como Executar o Jogo
-Para executar o jogo, basta abrir o arquivo *index.html* em seu navegador da web, ou acesse o [Replit](https://replit.com/@humbertofarrapo/JogoDaCobrinha).
+Para executar o jogo, basta abrir o arquivo *index.html* em seu navegador da web, ou acesse o [Replit](https://replit.com/@humbertofarrapo/Serpente).
 
 # Screenshots do Jogo
 ![tela-inicial](https://github.com/humbertofarrapo/serpente/assets/105745727/bc3f3b84-c61b-4d3d-8f42-3475c6f17a39)
